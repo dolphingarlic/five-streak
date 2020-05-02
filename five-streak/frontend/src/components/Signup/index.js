@@ -1,10 +1,17 @@
 import React, { Component } from "react";
-import axiosInstance from "../axiosApi";
 
-class Login extends Component {
+import axiosInstance from "../../axiosApi";
+
+class Signup extends Component {
     constructor(props) {
         super(props);
-        this.state = { username: "", password: "" };
+        this.state = {
+            username: "",
+            password: "",
+            email: "",
+
+            errors: {},
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,27 +21,27 @@ class Login extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         try {
-            axiosInstance.post("/token/obtain/", {
+            const response = await axiosInstance.post("/users/", {
                 username: this.state.username,
+                email: this.state.email,
                 password: this.state.password,
-            }).then((response) => {
-                axiosInstance.defaults.headers["Authorization"] = "JWT " + response.data.access;
-                localStorage.setItem("access_token", response.data.access);
-                localStorage.setItem("refresh_token", response.data.refresh);
-                return response.data;
             });
+            return response;
         } catch (error) {
-            throw error;
+            console.log(error.stack);
+            this.setState({
+                errors: error.response.data,
+            });
         }
     }
 
     render() {
         return (
             <React.Fragment>
-                <h2>Login</h2>
+                <h2>Signup</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Username:
@@ -44,6 +51,21 @@ class Login extends Component {
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
+                        {this.state.errors.username
+                            ? this.state.errors.username
+                            : null}
+                    </label>
+                    <label>
+                        Email:
+                        <input
+                            name="email"
+                            type="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                        />
+                        {this.state.errors.email
+                            ? this.state.errors.email
+                            : null}
                     </label>
                     <label>
                         Password:
@@ -53,6 +75,9 @@ class Login extends Component {
                             value={this.state.password}
                             onChange={this.handleChange}
                         />
+                        {this.state.errors.password
+                            ? this.state.errors.password
+                            : null}
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
@@ -61,4 +86,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Signup;

@@ -25,7 +25,17 @@ class StreakSerializer(serializers.ModelSerializer):
         model = Streak
         fields = '__all__'
 
-    def validate_user(self, user):
-        if len(user.streak_set.filter(active='True')) != 0:
-            raise serializers.ValidationError(f'{user.username} already has an active streak')
-        return user
+    def create(self, validated_data):
+        new_streak = None
+        try:
+            request = self.context.get('request')
+            if request and hasattr(request, 'user'):
+                user = request.user
+            assert len(user.streak_set.filter(active=True)) == 0
+
+            new_streak = Streak.objects.create(user=user)
+            new_streak.save()
+        except (User.DoesNotExist, AssertionError):
+            raise serializers.ValidationError('Error creating streak: current user already has an active streak')
+
+        return new_streak

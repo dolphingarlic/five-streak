@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 
-class Signup extends Component {
+import axiosInstance from "../../axiosApi";
+
+class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username: "",
-            password: "",
-            email: "",
-        };
+        this.state = { username: "", password: "" };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,22 +15,27 @@ class Signup extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    handleSubmit(event) {
-        alert(
-            "A username and password was submitted: " +
-                this.state.username +
-                " " +
-                this.state.password +
-                " " +
-                this.state.email
-        );
+    async handleSubmit(event) {
         event.preventDefault();
+        try {
+            const response = await axiosInstance.post("/token/obtain/", {
+                username: this.state.username,
+                password: this.state.password,
+            });
+            axiosInstance.defaults.headers["Authorization"] =
+                "JWT " + response.data.access;
+            localStorage.setItem("access_token", response.data.access);
+            localStorage.setItem("refresh_token", response.data.refresh);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
     }
 
     render() {
         return (
             <React.Fragment>
-                <h2>Signup</h2>
+                <h2>Login</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Username:
@@ -40,15 +43,6 @@ class Signup extends Component {
                             name="username"
                             type="text"
                             value={this.state.username}
-                            onChange={this.handleChange}
-                        />
-                    </label>
-                    <label>
-                        Email:
-                        <input
-                            name="email"
-                            type="email"
-                            value={this.state.email}
                             onChange={this.handleChange}
                         />
                     </label>
@@ -68,4 +62,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default Login;
