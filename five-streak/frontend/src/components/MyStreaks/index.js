@@ -27,7 +27,6 @@ class MyStreaks extends Component {
                 inactive: inactive
             });
         } catch (error) {
-            console.log("Error: ", JSON.stringify(error, null, 4));
             throw error;
         }
     }
@@ -37,8 +36,6 @@ class MyStreaks extends Component {
     }
 
     render() {
-        console.log(this.state.active);
-        console.log(this.state.inactive);
         return (
             <React.Fragment>
                 <h2>Active Streaks</h2>

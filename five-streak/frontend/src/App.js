@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import MyStreaks from "./components/MyStreaks";
 import NavBar from "./components/NavBar";
+import Home from "./components/Home"
 import axiosInstance from "./axiosApi";
 
 class App extends Component {
@@ -32,7 +33,6 @@ class App extends Component {
             <React.Fragment>
                 <NavBar />
                 <main>
-                    <h1>Five Streak</h1>
                     <Switch>
                         <Route exact path={"/login/"} component={Login} />
                         <Route exact path={"/signup/"} component={Signup} />
@@ -41,10 +41,7 @@ class App extends Component {
                             path={"/my-streaks/"}
                             component={MyStreaks}
                         />
-                        <Route
-                            path={"/"}
-                            render={() => <div>Home again</div>}
-                        />
+                        <Route path={"/"} component={Home} />
                     </Switch>
                 </main>
             </React.Fragment>

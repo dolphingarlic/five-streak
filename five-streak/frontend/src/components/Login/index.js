@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
+import styles from "./login.module.css";
 import axiosInstance from "../../axiosApi";
 
 class Login extends Component {
@@ -12,7 +15,11 @@ class Login extends Component {
     }
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ [event.target.id]: event.target.value });
+    }
+
+    validateForm() {
+        return this.state.username.length > 0 && this.state.password.length > 0;
     }
 
     async handleSubmit(event) {
@@ -26,7 +33,7 @@ class Login extends Component {
                 "JWT " + response.data.access;
             localStorage.setItem("access_token", response.data.access);
             localStorage.setItem("refresh_token", response.data.refresh);
-            return response.data;
+            this.props.history.push("/");
         } catch (error) {
             throw error;
         }
@@ -36,27 +43,27 @@ class Login extends Component {
         return (
             <React.Fragment>
                 <h2>Login</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Username:
-                        <input
-                            name="username"
-                            type="text"
+                <Form onSubmit={this.handleSubmit} className="Login">
+                    <Form.Group controlId="username">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control
                             value={this.state.username}
                             onChange={this.handleChange}
+                            type="text"
                         />
-                    </label>
-                    <label>
-                        Password:
-                        <input
-                            name="password"
-                            type="password"
+                    </Form.Group>
+                    <Form.Group controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
                             value={this.state.password}
                             onChange={this.handleChange}
+                            type="password"
                         />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
+                    </Form.Group>
+                    <Button block disabled={!this.validateForm()} type="submit">
+                        Login
+                    </Button>
+                </Form>
             </React.Fragment>
         );
     }
