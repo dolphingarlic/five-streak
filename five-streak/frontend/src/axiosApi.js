@@ -33,6 +33,7 @@ axiosInstance.interceptors.response.use(
             error.response.status === 401 &&
             error.response.statusText === "Unauthorized"
         ) {
+            localStorage.removeItem("access_token");
             const refreshToken = localStorage.getItem("refresh_token");
 
             if (refreshToken) {
@@ -65,6 +66,7 @@ axiosInstance.interceptors.response.use(
                         console.log(err);
                     }
                 } else {
+                    localStorage.removeItem("refresh_token");
                     console.log(
                         "Refresh token is expired",
                         tokenParts.exp,

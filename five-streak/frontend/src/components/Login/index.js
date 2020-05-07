@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
-import styles from "./login.module.css";
-import axiosInstance from "../../axiosApi";
+import "./login.module.css";
+// import axiosInstance from "../../axiosApi";
 
 class Login extends Component {
     constructor(props) {
         super(props);
+
         this.state = { username: "", password: "" };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -22,51 +23,52 @@ class Login extends Component {
         return this.state.username.length > 0 && this.state.password.length > 0;
     }
 
-    async handleSubmit(event) {
-        event.preventDefault();
-        try {
-            const response = await axiosInstance.post("/token/obtain/", {
-                username: this.state.username,
-                password: this.state.password,
-            });
-            axiosInstance.defaults.headers["Authorization"] =
-                "JWT " + response.data.access;
-            localStorage.setItem("access_token", response.data.access);
-            localStorage.setItem("refresh_token", response.data.refresh);
-            this.props.history.push("/");
-        } catch (error) {
-            throw error;
-        }
-    }
-
     render() {
         return (
             <React.Fragment>
-                <h2>Login</h2>
-                <Form onSubmit={this.handleSubmit} className="Login">
-                    <Form.Group controlId="username">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                            type="text"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                            type="password"
-                        />
-                    </Form.Group>
-                    <Button block disabled={!this.validateForm()} type="submit">
-                        Login
-                    </Button>
-                </Form>
+                <div className="container">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Login</h3>
+                    </div>
+                    <Form
+                        onSubmit={(e) => {
+                            this.props.handleLogin(e, this.state);
+                            this.props.history.push("/");
+                        }}
+                        className="Login"
+                    >
+                        <Form.Group controlId="username">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                                type="text"
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                                type="password"
+                            />
+                        </Form.Group>
+                        <Button
+                            block
+                            disabled={!this.validateForm()}
+                            type="submit"
+                        >
+                            Login
+                        </Button>
+                    </Form>
+                </div>
             </React.Fragment>
         );
     }
 }
+
+Login.propTypes = {
+    handleLogin: PropTypes.func.isRequired,
+};
 
 export default Login;

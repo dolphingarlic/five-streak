@@ -8,7 +8,7 @@ class Streak(models.Model):
     action_count = models.IntegerField(default=0)
     active = models.BooleanField(default=True)
 
-    start_date = models.DateField(auto_now=True)
+    start_date = models.DateField(auto_now_add=True)
     end_date = models.DateField(blank=True, null=True)
 
     def __str__(self):

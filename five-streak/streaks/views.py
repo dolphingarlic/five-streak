@@ -46,7 +46,7 @@ class LogoutAndBlacklistRefreshTokenForUserView(APIView):
     permission_classes = (permissions.AllowAny,)
     authentication_classes = ()
 
-    def post(self, request):
+    def post(self, request, format=None):
         try:
             refresh_token = request.data["refresh_token"]
             token = RefreshToken(refresh_token)
@@ -54,3 +54,12 @@ class LogoutAndBlacklistRefreshTokenForUserView(APIView):
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class CurrentUserView(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request, format=None):
+        user = request.user
+        serializer = UserSerializer(user, many=False)
+        return Response(serializer.data)
