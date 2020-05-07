@@ -41,13 +41,7 @@ class MyStreaks extends Component {
         let current;
         if (this.state.active.length) {
             const streak = this.state.active[0];
-            const days = Math.ceil(
-                (Date.now() - Date.parse(streak.start_date)) /
-                    (1000 * 60 * 60 * 24)
-            );
-            const average = (streak.action_count / days).toFixed(1);
-
-            current = <React.Fragment>{days}</React.Fragment>;
+            current = <React.Fragment>{streak.days}</React.Fragment>;
         } else {
             current = <p className="mb-1">You have no current streak</p>;
         }
@@ -57,26 +51,19 @@ class MyStreaks extends Component {
             previous = (
                 <ul className="list-group">
                     {this.state.inactive.map((streak) => {
-                        const days = Math.ceil(
-                            (Date.parse(streak.end_date) -
-                                Date.parse(streak.start_date)) /
-                                (1000 * 60 * 60 * 24)
-                        );
-                        const average = (streak.action_count / days).toFixed(1);
-
                         return (
                             <li
                                 key={streak["id"]}
                                 className="list-group-item flex-column align-items-start"
                             >
                                 <div className="d-flex w-100 justify-content-between">
-                                    <h5 className="mb-1">{days}-day Streak</h5>
+                                    <h5 className="mb-1">{streak.days}-day Streak</h5>
                                     <small>
-                                        {streak.start_date} to {streak.end_date}
+                                        {streak.start_date} to {streak.last_updated}
                                     </small>
                                 </div>
                                 <p className="mb-1">
-                                    Average number of actions: {average}
+                                    Average daily actions: {streak.average}
                                 </p>
                             </li>
                         );
@@ -90,13 +77,13 @@ class MyStreaks extends Component {
         return (
             <React.Fragment>
                 <div className="container">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Current Streak</h3>
+                    <div className="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 className="text-dark mb-0">Current Streak</h3>
                     </div>
                     {current}
 
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Previous Streaks</h3>
+                    <div className="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 className="text-dark mb-0">Previous Streaks</h3>
                     </div>
                     {previous}
                 </div>

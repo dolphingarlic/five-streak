@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'streaks',
     'frontend',
     'corsheaders',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

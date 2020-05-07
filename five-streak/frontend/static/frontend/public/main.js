@@ -714,9 +714,9 @@ var Login = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "d-sm-flex justify-content-between align-items-center mb-4"
+        className: "d-sm-flex justify-content-between align-items-center mb-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        "class": "text-dark mb-0"
+        className: "text-dark mb-0"
       }, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onSubmit: function onSubmit(e) {
           _this2.props.handleLogin(e, _this2.state);
@@ -900,9 +900,7 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
 
       if (this.state.active.length) {
         var streak = this.state.active[0];
-        var days = Math.ceil((Date.now() - Date.parse(streak.start_date)) / (1000 * 60 * 60 * 24));
-        var average = (streak.action_count / days).toFixed(1);
-        current = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, days);
+        current = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, streak.days);
       } else {
         current = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-1"
@@ -915,8 +913,6 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
         previous = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "list-group"
         }, this.state.inactive.map(function (streak) {
-          var days = Math.ceil((Date.parse(streak.end_date) - Date.parse(streak.start_date)) / (1000 * 60 * 60 * 24));
-          var average = (streak.action_count / days).toFixed(1);
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: streak["id"],
             className: "list-group-item flex-column align-items-start"
@@ -924,9 +920,9 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
             className: "d-flex w-100 justify-content-between"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
             className: "mb-1"
-          }, days, "-day Streak"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.start_date, " to ", streak.end_date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          }, streak.days, "-day Streak"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.start_date, " to ", streak.last_updated)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "mb-1"
-          }, "Average number of actions: ", average));
+          }, "Average number of actions: ", streak.average));
         }));
       } else {
         previous = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -937,13 +933,13 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "d-sm-flex justify-content-between align-items-center mb-4"
+        className: "d-sm-flex justify-content-between align-items-center mb-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        "class": "text-dark mb-0"
+        className: "text-dark mb-0"
       }, "Current Streak")), current, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "d-sm-flex justify-content-between align-items-center mb-4"
+        className: "d-sm-flex justify-content-between align-items-center mb-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        "class": "text-dark mb-0"
+        className: "text-dark mb-0"
       }, "Previous Streaks")), previous));
     }
   }]);
@@ -1149,9 +1145,9 @@ var Signup = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "d-sm-flex justify-content-between align-items-center mb-4"
+        className: "d-sm-flex justify-content-between align-items-center mb-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        "class": "text-dark mb-0"
+        className: "text-dark mb-0"
       }, "Signup")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onSubmit: function onSubmit(e) {
           _this2.props.handleSignup(e, _this2.state);
@@ -1334,14 +1330,12 @@ var TopTen = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "d-sm-flex justify-content-between align-items-center mb-4"
+        className: "d-sm-flex justify-content-between align-items-center mb-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        "class": "text-dark mb-0"
+        className: "text-dark mb-0"
       }, "Top 10 Active Streaks")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
         className: "list-group"
       }, this.state.top_ten.map(function (streak) {
-        var days = Math.ceil((Date.now() - Date.parse(streak.start_date)) / (1000 * 60 * 60 * 24));
-        var average = (streak.action_count / days).toFixed(1);
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: streak["id"],
           className: "list-group-item flex-column align-items-start"
@@ -1349,9 +1343,9 @@ var TopTen = /*#__PURE__*/function (_Component) {
           className: "d-flex w-100 justify-content-between"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
           className: "mb-1"
-        }, streak.user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, days, " days")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, streak.user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.days, " days")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-1"
-        }, "Average number of actions: ", average));
+        }, "Average number of actions: ", streak.average));
       }))));
     }
   }]);

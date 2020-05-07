@@ -5,12 +5,15 @@ verify_ssl = true
 
 [dev-packages]
 autopep8 = "*"
+pylint = "*"
 
 [packages]
 django = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 django-cors-headers = "*"
+celery = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.7"

@@ -27,8 +27,8 @@ class Login extends Component {
         return (
             <React.Fragment>
                 <div className="container">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Login</h3>
+                    <div className="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 className="text-dark mb-0">Login</h3>
                     </div>
                     <Form
                         onSubmit={(e) => {

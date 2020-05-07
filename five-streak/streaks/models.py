@@ -9,7 +9,7 @@ class Streak(models.Model):
     active = models.BooleanField(default=True)
 
     start_date = models.DateField(auto_now_add=True)
-    end_date = models.DateField(blank=True, null=True)
+    last_updated = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.user.username}\'s {"active" if self.active else "inactive"} streak'

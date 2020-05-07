@@ -20,6 +20,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 class StreakSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
+    days = serializers.SerializerMethodField()
+    average = serializers.SerializerMethodField()
+
+    def get_days(self, streak):
+        return (streak.last_updated - streak.start_date).days + 1
+
+    def get_average(self, streak):
+        return round(streak.action_count / self.get_days(streak), 1)
 
     class Meta:
         model = Streak
@@ -36,6 +44,7 @@ class StreakSerializer(serializers.ModelSerializer):
             new_streak = Streak.objects.create(user=user)
             new_streak.save()
         except (User.DoesNotExist, AssertionError):
-            raise serializers.ValidationError('Error creating streak: current user already has an active streak')
+            raise serializers.ValidationError(
+                'Error creating streak: current user already has an active streak')
 
         return new_streak
