@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import axiosInstance from "../../axiosApi";
 
@@ -40,8 +41,31 @@ class MyStreaks extends Component {
     render() {
         let current;
         if (this.state.active.length) {
-            const streak = this.state.active[0];
-            current = <React.Fragment>{streak.days}</React.Fragment>;
+            current = (
+                <ul className="list-group">
+                    {this.state.active.map((streak) => {
+                        return (
+                            <li
+                                key={streak["id"]}
+                                className="list-group-item flex-column align-items-start"
+                            >
+                                <div className="d-flex w-100 justify-content-between">
+                                    <h5 className="mb-1">
+                                        {streak.days}-day Streak
+                                    </h5>
+                                    <small>
+                                        {streak.start_date} to{" "}
+                                        {streak.last_updated}
+                                    </small>
+                                </div>
+                                <p className="mb-1">
+                                    Average daily actions: {streak.average}
+                                </p>
+                            </li>
+                        );
+                    })}
+                </ul>
+            );
         } else {
             current = <p className="mb-1">You have no current streak</p>;
         }
@@ -57,9 +81,12 @@ class MyStreaks extends Component {
                                 className="list-group-item flex-column align-items-start"
                             >
                                 <div className="d-flex w-100 justify-content-between">
-                                    <h5 className="mb-1">{streak.days}-day Streak</h5>
+                                    <h5 className="mb-1">
+                                        {streak.days}-day Streak
+                                    </h5>
                                     <small>
-                                        {streak.start_date} to {streak.last_updated}
+                                        {streak.start_date} to{" "}
+                                        {streak.last_updated}
                                     </small>
                                 </div>
                                 <p className="mb-1">
@@ -77,11 +104,14 @@ class MyStreaks extends Component {
         return (
             <React.Fragment>
                 <div className="container">
+                    <div className="d-sm-flex justify-content-between align-items-center mb-1">
+                        <h1>Welcome, {this.props.username}</h1>
+                    </div>
                     <div className="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 className="text-dark mb-0">Current Streak</h3>
                     </div>
                     {current}
-
+                    <hr />
                     <div className="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 className="text-dark mb-0">Previous Streaks</h3>
                     </div>
@@ -91,5 +121,9 @@ class MyStreaks extends Component {
         );
     }
 }
+
+MyStreaks.propTypes = {
+    username: PropTypes.string.isRequired,
+};
 
 export default MyStreaks;

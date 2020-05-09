@@ -129,7 +129,12 @@ class App extends Component {
                         <Route
                             exact
                             path={"/my-streaks/"}
-                            component={MyStreaks}
+                            component={(props) => (
+                                <MyStreaks
+                                    username={this.state.username}
+                                    {...props}
+                                />
+                            )}
                         />
                         <Route exact path={"/top-ten/"} component={TopTen} />
                         <Route path={"/"} component={Home} />

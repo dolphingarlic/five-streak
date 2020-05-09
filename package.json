@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
+    "serve": "npm run build; python five-streak/manage.py runserver",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andi Qu",
