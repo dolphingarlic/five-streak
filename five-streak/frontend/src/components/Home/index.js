@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+import UpdateStreak from "../UpdateStreak";
 
 class Home extends Component {
     constructor(props) {
@@ -8,6 +11,7 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
+                {this.props.logged_in ? <UpdateStreak /> : <React.Fragment />}
                 <div className="container">
                     <div>
                         <h1>Do the Five</h1>
@@ -37,5 +41,9 @@ class Home extends Component {
         );
     }
 }
+
+Home.propTypes = {
+    logged_in: PropTypes.bool.isRequired,
+};
 
 export default Home;

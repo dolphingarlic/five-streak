@@ -139,7 +139,15 @@ class App extends Component {
                             )}
                         />
                         <Route exact path={"/top-ten/"} component={TopTen} />
-                        <Route path={"/"} component={Home} />
+                        <Route
+                            path={"/"}
+                            component={(props) => (
+                                <Home
+                                    logged_in={this.state.logged_in}
+                                    {...props}
+                                />
+                            )}
+                        />
                     </Switch>
                 </main>
                 <Footer />
