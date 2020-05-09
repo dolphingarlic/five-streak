@@ -8,6 +8,8 @@ import MyStreaks from "./components/MyStreaks";
 import TopTen from "./components/TopTen";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
+
 import axiosInstance from "./axiosApi";
 
 class App extends Component {
@@ -140,6 +142,7 @@ class App extends Component {
                         <Route path={"/"} component={Home} />
                     </Switch>
                 </main>
+                <Footer />
             </React.Fragment>
         );
     }

@@ -6,6 +6,8 @@ html {
 body {
     margin-bottom: 160px !important; /* Height of the footer */
     padding: 0;
+    color: #333;
+    background-color: #eee;
 }
 
 footer {
@@ -21,8 +23,21 @@ footer {
     background-color: #025fce !important;
 }
 
+.jumbotron {
+    text-align: center;
+}
+
 button:focus,
 button:active {
     outline: none !important;
     box-shadow: none !important;
+}
+
+/* Custom fonts */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif !important;
+}
+p, div {
+    font-family: 'Open Sans', sans-serif !important;
 }

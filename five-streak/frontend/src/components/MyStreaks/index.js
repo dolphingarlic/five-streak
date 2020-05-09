@@ -51,11 +51,11 @@ class MyStreaks extends Component {
                             >
                                 <div className="d-flex w-100 justify-content-between">
                                     <h5 className="mb-1">
-                                        {streak.days}-day Streak
+                                        {streak.days} day
+                                        {streak.days == 1 ? "" : "s"}
                                     </h5>
                                     <small>
-                                        {streak.start_date} to{" "}
-                                        {streak.last_updated}
+                                        {streak.start_date} to Today
                                     </small>
                                 </div>
                                 <p className="mb-1">
@@ -82,7 +82,8 @@ class MyStreaks extends Component {
                             >
                                 <div className="d-flex w-100 justify-content-between">
                                     <h5 className="mb-1">
-                                        {streak.days}-day Streak
+                                        {streak.days} day
+                                        {streak.days == 1 ? "" : "s"}
                                     </h5>
                                     <small>
                                         {streak.start_date} to{" "}
@@ -107,6 +108,7 @@ class MyStreaks extends Component {
                     <div className="d-sm-flex justify-content-between align-items-center mb-1">
                         <h1>Welcome, {this.props.username}</h1>
                     </div>
+                    <hr />
                     <div className="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 className="text-dark mb-0">Current Streak</h3>
                     </div>

@@ -32,3 +32,12 @@ button:active {
     outline: none !important;
     box-shadow: none !important;
 }
+
+/* Custom fonts */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif !important;
+}
+p, div {
+    font-family: 'Open Sans', sans-serif !important;
+}
