@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-// import styles from "./navbar.module.css";
+import "./navbar.module.css";
 
 // import axiosInstance from "../../axiosApi";
 

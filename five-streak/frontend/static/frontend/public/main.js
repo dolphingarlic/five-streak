@@ -659,7 +659,7 @@ function Footer() {
     className: "Copyright footer-copyright text-center py-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container fluid"
-  }, "\xA9 2020 Copyright: Andi Qu")));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "\xA9 2020 Copyright: Andi Qu"))));
 }
 
 /***/ }),
@@ -718,9 +718,11 @@ var Home = /*#__PURE__*/function (_Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, this.props.logged_in ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UpdateStreak__WEBPACK_IMPORTED_MODULE_2__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, this.props.logged_in ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "jumbotron"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UpdateStreak__WEBPACK_IMPORTED_MODULE_2__["default"], null)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Do the Five"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Wash your hands"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cough in your elbow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Don't touch your face"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Keep distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Stay home"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Help stop COVID-19"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Do the Five and come back tomorrow to keep your streak"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Challenge friends and family to record their *thing*")))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Do the Five"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Wash your hands"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cough in your elbow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Don't touch your face"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Keep distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Stay home"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Help stop COVID-19"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Do the Five and come back tomorrow to keep your streak"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Challenge friends and family to record their streaks"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Share your streak on social media")))));
     }
   }]);
 
@@ -1016,7 +1018,7 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
             className: "d-flex w-100 justify-content-between"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
             className: "mb-1"
-          }, streak.days, " day", streak.days == 1 ? "" : "s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.start_date, " to Today")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          }, streak.days, " day", streak.days == 1 ? "" : "s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.start_date, " to", " ", streak.last_updated)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "mb-1"
           }, "Average daily actions: ", streak.average));
         }));
@@ -1091,6 +1093,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _navbar_module_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./navbar.module.css */ "./five-streak/frontend/src/components/NavBar/navbar.module.css");
+/* harmony import */ var _navbar_module_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_navbar_module_css__WEBPACK_IMPORTED_MODULE_5__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1117,8 +1121,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // import styles from "./navbar.module.css";
-// import axiosInstance from "../../axiosApi";
+
+ // import axiosInstance from "../../axiosApi";
 
 var NavBar = /*#__PURE__*/function (_Component) {
   _inherits(NavBar, _Component);
@@ -1179,6 +1183,35 @@ NavBar.propTypes = {
   handleLogout: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (NavBar);
+
+/***/ }),
+
+/***/ "./five-streak/frontend/src/components/NavBar/navbar.module.css":
+/*!**********************************************************************!*\
+  !*** ./five-streak/frontend/src/components/NavBar/navbar.module.css ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js!./navbar.module.css */ "./node_modules/css-loader/dist/cjs.js!./five-streak/frontend/src/components/NavBar/navbar.module.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
 
 /***/ }),
 
@@ -1492,6 +1525,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap/Form */ "./node_modules/react-bootstrap/esm/Form.js");
 /* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var _axiosApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../axiosApi */ "./five-streak/frontend/src/axiosApi.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1524,6 +1558,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var UpdateStreak = /*#__PURE__*/function (_Component) {
   _inherits(UpdateStreak, _Component);
 
@@ -1543,7 +1578,8 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
       touch: false,
       distance: false,
       home: false,
-      action_count: 0
+      action_count: 0,
+      streak: null
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.updateStreak = _this.updateStreak.bind(_assertThisInitialized(_this));
@@ -1559,31 +1595,108 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
     }
   }, {
     key: "updateStreak",
-    value: function updateStreak() {
-      // Do stuff
-      this.setState({
-        done: true
-      });
-    }
-  }, {
-    key: "componentDidMount",
     value: function () {
-      var _componentDidMount = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var _updateStreak = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // Do stuff
-                this.setState({
-                  ready: true
+                event.preventDefault();
+                _context.prev = 1;
+
+                if (!this.state.streak) {
+                  _context.next = 7;
+                  break;
+                }
+
+                _context.next = 5;
+                return _axiosApi__WEBPACK_IMPORTED_MODULE_3__["default"].patch("/streaks/".concat(this.state.streak.id, "/"), {
+                  action_count: this.state.streak.action_count + this.state.action_count
                 });
 
-              case 1:
+              case 5:
+                _context.next = 10;
+                break;
+
+              case 7:
+                console.log(this.state.action_count);
+                _context.next = 10;
+                return _axiosApi__WEBPACK_IMPORTED_MODULE_3__["default"].post("/streaks/", {
+                  action_count: this.state.action_count
+                });
+
+              case 10:
+                _context.next = 15;
+                break;
+
+              case 12:
+                _context.prev = 12;
+                _context.t0 = _context["catch"](1);
+                throw _context.t0;
+
+              case 15:
+                this.setState({
+                  done: true
+                });
+
+              case 16:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[1, 12]]);
+      }));
+
+      function updateStreak(_x) {
+        return _updateStreak.apply(this, arguments);
+      }
+
+      return updateStreak;
+    }()
+  }, {
+    key: "componentDidMount",
+    value: function () {
+      var _componentDidMount = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+        var _this2 = this;
+
+        var response;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return _axiosApi__WEBPACK_IMPORTED_MODULE_3__["default"].get("/my-streaks/");
+
+              case 3:
+                response = _context2.sent;
+                response.data.forEach(function (streak) {
+                  if (streak["active"]) {
+                    if (Date.now() - Date.parse(streak.last_updated) < 86400000) _this2.setState({
+                      done: true
+                    });else _this2.setState({
+                      done: false,
+                      streak: streak
+                    });
+                  }
+                });
+                this.setState({
+                  ready: true
+                });
+                _context2.next = 11;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
+                throw _context2.t0;
+
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[0, 8]]);
       }));
 
       function componentDidMount() {
@@ -1605,7 +1718,7 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
         className: "row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-6"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Today I..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Today I..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
         custom: true,
         type: "checkbox",
         id: "wash",
@@ -1644,6 +1757,7 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
         className: "col-md-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         block: true,
+        disabled: !this.state.action_count,
         type: "submit"
       }, "Keep my Streak!")))));
     }
@@ -14934,7 +15048,7 @@ module.exports = __webpack_require__(/*! ./modules/_core */ "./node_modules/core
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "html {\n    position: relative;\n    min-height: 100%;\n}\n\nbody {\n    margin-bottom: 160px !important; /* Height of the footer */\n    padding: 0;\n    color: #333;\n    background-color: #eee;\n}\n\nfooter {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 160px; /* Set the fixed height of the footer here */\n}\n\n/* Override Bootstrap Styling */\n\n.btn-primary {\n    background-color: #025fce !important;\n}\n\n.jumbotron {\n    text-align: center;\n}\n\nbutton:focus,\nbutton:active {\n    outline: none !important;\n    box-shadow: none !important;\n}\n\n/* Custom fonts */\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: 'Roboto Slab', serif !important;\n}\np, div {\n    font-family: 'Open Sans', sans-serif !important;\n}\n", ""]);
+exports.push([module.i, "html {\n    position: relative;\n    min-height: 100%;\n}\n\nbody {\n    margin-bottom: 160px !important; /* Height of the footer */\n    padding: 0;\n    color: #333;\n    background-color: #eee;\n}\n\nfooter {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 160px; /* Set the fixed height of the footer here */\n}\n\n/* Override Bootstrap Styling */\n\n.btn-primary {\n    background-color: #025fce !important;\n}\n\n.jumbotron {\n    text-align: left;\n}\n\nbutton:focus,\nbutton:active {\n    outline: none !important;\n    box-shadow: none !important;\n}\n\n/* Custom fonts */\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: 'Lato', sans-serif !important;\n}\np, div {\n    font-family: 'Open Sans', sans-serif !important;\n}\n\n/* Font size */\n\n@media screen and (max-width: 767px) {\n    html {\n        font-size: .8rem;\n    }\n}\n@media (min-width: 768px) and (max-width: 991px) {\n    html {\n        font-size: 1rem;\n    }\n}\n@media (min-width: 992px) and (max-width: 1199px) {\n    html {\n        font-size: 1.2rem;\n    }\n}\n@media screen and (min-width: 1200px) {\n    html {\n        font-size: 1.4rem;\n    }\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -14971,6 +15085,24 @@ var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_mo
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.i, ".Login {\n    margin: 1rem;\n}\n\n@media all and (min-width: 480px) {\n    .Login {\n        padding: 60px 0;\n        margin: 0 auto;\n        max-width: 320px;\n    }\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./five-streak/frontend/src/components/NavBar/navbar.module.css":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./five-streak/frontend/src/components/NavBar/navbar.module.css ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "Navbar {\n    background-color: darkgreen;\n}", ""]);
 // Exports
 module.exports = exports;
 

@@ -24,7 +24,7 @@ footer {
 }
 
 .jumbotron {
-    text-align: center;
+    text-align: left;
 }
 
 button:focus,
@@ -36,8 +36,31 @@ button:active {
 /* Custom fonts */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto Slab', serif !important;
+    font-family: 'Lato', sans-serif !important;
 }
 p, div {
     font-family: 'Open Sans', sans-serif !important;
+}
+
+/* Font size */
+
+@media screen and (max-width: 767px) {
+    html {
+        font-size: .8rem;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    html {
+        font-size: 1rem;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    html {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width: 1200px) {
+    html {
+        font-size: 1.4rem;
+    }
 }

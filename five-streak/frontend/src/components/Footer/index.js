@@ -46,7 +46,9 @@ export default function Footer() {
                 </div>
             </div>
             <div className="Copyright footer-copyright text-center py-3">
-                <div className="container fluid">© 2020 Copyright: Andi Qu</div>
+                <div className="container fluid">
+                    <small>© 2020 Copyright: Andi Qu</small>
+                </div>
             </div>
         </footer>
     );

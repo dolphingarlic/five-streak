@@ -41,7 +41,7 @@ class StreakSerializer(serializers.ModelSerializer):
                 user = request.user
             assert len(user.streak_set.filter(active=True)) == 0
 
-            new_streak = Streak.objects.create(user=user)
+            new_streak = Streak.objects.create(user=user, **validated_data)
             new_streak.save()
         except (User.DoesNotExist, AssertionError):
             raise serializers.ValidationError(

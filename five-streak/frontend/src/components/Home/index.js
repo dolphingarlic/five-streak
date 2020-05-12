@@ -11,7 +11,13 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.logged_in ? <UpdateStreak /> : <React.Fragment />}
+                {this.props.logged_in ? (
+                    <div className="jumbotron">
+                        <UpdateStreak />
+                    </div>
+                ) : (
+                    <React.Fragment />
+                )}
                 <div className="container">
                     <div>
                         <h1>Do the Five</h1>
@@ -32,8 +38,9 @@ class Home extends Component {
                             </li>
                             <li>
                                 Challenge friends and family to record their
-                                *thing*
+                                streaks
                             </li>
+                            <li>Share your streak on social media</li>
                         </ul>
                     </div>
                 </div>

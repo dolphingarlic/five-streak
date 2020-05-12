@@ -55,7 +55,8 @@ class MyStreaks extends Component {
                                         {streak.days == 1 ? "" : "s"}
                                     </h5>
                                     <small>
-                                        {streak.start_date} to Today
+                                        {streak.start_date} to{" "}
+                                        {streak.last_updated}
                                     </small>
                                 </div>
                                 <p className="mb-1">
