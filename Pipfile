@@ -15,6 +15,7 @@ django-cors-headers = "*"
 celery = "*"
 drf-yasg = "*"
 django-heroku = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
