@@ -1564,7 +1564,6 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      ready: false,
       done: false,
       wash: false,
       cough: false,
@@ -1679,23 +1678,20 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
                     });
                   }
                 });
-                this.setState({
-                  ready: true
-                });
-                _context2.next = 11;
+                _context2.next = 10;
                 break;
 
-              case 8:
-                _context2.prev = 8;
+              case 7:
+                _context2.prev = 7;
                 _context2.t0 = _context2["catch"](0);
                 throw _context2.t0;
 
-              case 11:
+              case 10:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 8]]);
+        }, _callee2, null, [[0, 7]]);
       }));
 
       function componentDidMount() {
@@ -1709,7 +1705,6 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      if (!this.state.ready) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
       if (this.state.done) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container fluid"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

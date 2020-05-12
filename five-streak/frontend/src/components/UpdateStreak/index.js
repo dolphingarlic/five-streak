@@ -11,7 +11,6 @@ class UpdateStreak extends Component {
         super(props);
 
         this.state = {
-            ready: false,
             done: false,
 
             wash: false,
@@ -72,14 +71,12 @@ class UpdateStreak extends Component {
                     else this.setState({ done: false, streak: streak });
                 }
             });
-            this.setState({ ready: true });
         } catch (error) {
             throw error;
         }
     }
 
     render() {
-        if (!this.state.ready) return <React.Fragment />;
         if (this.state.done)
             return (
                 <div className="container fluid">
