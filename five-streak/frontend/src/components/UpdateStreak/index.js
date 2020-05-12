@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Reward from "react-rewards";
 
+import "./updatestreak.module.css";
 import axiosInstance from "../../axiosApi";
 
 class UpdateStreak extends Component {
@@ -24,6 +26,11 @@ class UpdateStreak extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.updateStreak = this.updateStreak.bind(this);
+        this.confetti = this.confetti.bind(this);
+    }
+
+    confetti() {
+        this.reward.rewardMe();
     }
 
     handleChange(event) {
@@ -73,7 +80,38 @@ class UpdateStreak extends Component {
 
     render() {
         if (!this.state.ready) return <React.Fragment />;
-        if (this.state.done) return <React.Fragment></React.Fragment>;
+        if (this.state.done)
+            return (
+                <div className="container fluid">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <h1>Well Done</h1>
+                            <p>
+                                You kept your streak today. Come back tomorrow
+                                to keep it going!
+                            </p>
+                        </div>
+                        <div className="col-md-6 d-flex justify-content-center text-center">
+                            <Reward
+                                ref={(ref) => {
+                                    this.reward = ref;
+                                }}
+                                type="confetti"
+                            >
+                                <Button
+                                    block
+                                    variant="success"
+                                    className="btn-circle rounded-circle"
+                                    size="lg"
+                                    onClick={() => this.confetti()}
+                                >
+                                    Kept my Streak!
+                                </Button>
+                            </Reward>
+                        </div>
+                    </div>
+                </div>
+            );
         return (
             <Form onSubmit={this.updateStreak}>
                 <div className="container fluid">
@@ -121,14 +159,25 @@ class UpdateStreak extends Component {
                                 label="stayed home"
                             />
                         </div>
-                        <div className="col-md-6">
-                            <Button
-                                block
-                                disabled={!this.state.action_count}
-                                type="submit"
+                        <div className="col-md-6 d-flex justify-content-center text-center">
+                            <Reward
+                                ref={(ref) => {
+                                    this.reward = ref;
+                                }}
+                                type="confetti"
                             >
-                                Keep my Streak!
-                            </Button>
+                                <Button
+                                    block
+                                    disabled={!this.state.action_count}
+                                    type="submit"
+                                    variant="outline-success"
+                                    className="btn-circle rounded-circle"
+                                    size="lg"
+                                    onClick={() => this.confetti()}
+                                >
+                                    Keep my Streak!
+                                </Button>
+                            </Reward>
                         </div>
                     </div>
                 </div>

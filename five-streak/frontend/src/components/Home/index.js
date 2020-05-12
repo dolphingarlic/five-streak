@@ -32,15 +32,12 @@ class Home extends Component {
                     <div>
                         <h1>Help stop COVID-19</h1>
                         <ul>
-                            <li>
-                                Do the Five and come back tomorrow to keep your
-                                streak
-                            </li>
+                            <li>Do the Five and keep a streak going!</li>
                             <li>
                                 Challenge friends and family to record their
-                                streaks
+                                streaks!
                             </li>
-                            <li>Share your streak on social media</li>
+                            <li>Share your streak on social media!</li>
                         </ul>
                     </div>
                 </div>

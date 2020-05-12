@@ -63,21 +63,12 @@ class App extends Component {
     async handleSignup(event, data) {
         event.preventDefault();
         try {
-            const response = await axiosInstance.post("/users/", {
+            await axiosInstance.post("/users/", {
                 username: data.username,
                 email: data.email,
                 password: data.password,
             });
-            axiosInstance.defaults.headers["Authorization"] =
-                "JWT " + response.data.access;
-            localStorage.setItem("access_token", response.data.access);
-            localStorage.setItem("refresh_token", response.data.refresh);
-
-            const current_user = await axiosInstance.get("/users/current/");
-            this.setState({
-                logged_in: true,
-                username: current_user.data.username,
-            });
+            await this.handleLogin(event, data);
         } catch (error) {
             throw error;
         }

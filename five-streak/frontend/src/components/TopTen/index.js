@@ -29,9 +29,7 @@ class TopTen extends Component {
             <React.Fragment>
                 <div className="container">
                     <div className="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 className="text-dark mb-0">
-                            Top 10 Active Streaks
-                        </h3>
+                        <h1>Top 10 Active Streaks</h1>
                     </div>
                     <ol className="list-group">
                         {this.state.top_ten.map((streak) => {
@@ -44,7 +42,10 @@ class TopTen extends Component {
                                         <h5 className="mb-1">
                                             {streak.user.username}
                                         </h5>
-                                        <small>{streak.days} days</small>
+                                        <small>
+                                            {streak.days} day
+                                            {streak.days == 1 ? "" : "s"}
+                                        </small>
                                     </div>
                                     <p className="mb-1">
                                         Average daily actions: {streak.average}

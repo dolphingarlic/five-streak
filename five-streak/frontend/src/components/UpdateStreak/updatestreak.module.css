@@ -1,0 +1,22 @@
+.btn-circle {
+    border: 10px solid darkgreen !important;
+}
+
+@media (max-width: 991px) {
+    .btn-circle {
+        width: 180px;
+        height: 180px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .btn-circle {
+        width: 210px;
+        height: 210px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .btn-circle {
+        width: 240px;
+        height: 240px;
+    }
+}
