@@ -22,7 +22,11 @@ class NavBar extends Component {
                     className="shadow mb-4 topbar static-top"
                 >
                     <Link className="navbar-brand" to="/">
-                        Five Streak
+                        <img
+                            src="static/frontend/brand.png"
+                            className="d-inline-block align-top brand-image"
+                            alt="logo"
+                        />
                     </Link>
 
                     <Navbar.Toggle aria-controls="navbar-nav" />

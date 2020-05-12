@@ -1,3 +1,24 @@
 Navbar {
     background-color: darkgreen;
 }
+
+@media screen and (max-width: 767px) {
+    .brand-image {
+        height: 30px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .brand-image {
+        height: 35px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .brand-image {
+        height: 40px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .brand-image {
+        height: 45px;
+    }
+}

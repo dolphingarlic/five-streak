@@ -1136,7 +1136,11 @@ var NavBar = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         className: "navbar-brand",
         to: "/"
-      }, "Five Streak"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"].Toggle, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "static/frontend/brand.png",
+        className: "d-inline-block align-top brand-image",
+        alt: "logo"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"].Toggle, {
         "aria-controls": "navbar-nav"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"].Collapse, {
         id: "navbar-nav"
@@ -15159,7 +15163,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "Navbar {\n    background-color: darkgreen;\n}", ""]);
+exports.push([module.i, "Navbar {\n    background-color: darkgreen;\n}\n\n@media screen and (max-width: 767px) {\n    .brand-image {\n        height: 30px;\n    }\n}\n@media (min-width: 768px) and (max-width: 991px) {\n    .brand-image {\n        height: 35px;\n    }\n}\n@media (min-width: 992px) and (max-width: 1199px) {\n    .brand-image {\n        height: 40px;\n    }\n}\n@media screen and (min-width: 1200px) {\n    .brand-image {\n        height: 45px;\n    }\n}", ""]);
 // Exports
 module.exports = exports;
 

@@ -1,2 +1,2 @@
 release: python five-streak/manage.py migrate
-web: gunicorn five-streak.five-streak.wsgi --log-file -
+web: cd five-streak; gunicorn five-streak.wsgi --log-file -
