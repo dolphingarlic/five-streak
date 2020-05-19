@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
+    'pwa',
     'streaks',
     'frontend',
     'corsheaders',
@@ -148,6 +149,20 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     'http://localhost:8000',
 ]
+
+# PWA Settings
+PWA_APP_NAME = 'Five Streak'
+PWA_APP_DESCRIPTION = "Do the Five. Keep a Streak. Save Lives."
+PWA_APP_THEME_COLOR = '#deeede'
+PWA_APP_BACKGROUND_COLOR = '#deeede'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [ { 'src': 'static/frontend/favicon.png', 'sizes': '192x192' } ]
+PWA_APP_ICONS_APPLE = [ { 'src': 'static/frontend/favicon.png', 'sizes': '192x192' } ]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
 
 # Configure Django App for Heroku.
 import django_heroku

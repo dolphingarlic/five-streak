@@ -16,6 +16,7 @@ celery = "*"
 drf-yasg = "*"
 django-heroku = "*"
 gunicorn = "*"
+django-pwa = "*"
 
 [requires]
 python_version = "3.7"

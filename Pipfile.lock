@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "66047e1fb2e18628e416265cbcc4eebd74ccc40df984ed4fe6ed8cc1dc983fab"
+            "sha256": "a0f4601dcda95338725c74305b24ca68b83eced58a9543c5133af19423a6aa8d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -90,11 +90,11 @@
         },
         "django-cors-headers": {
             "hashes": [
-                "sha256:a5960addecc04527ab26617e51b8ed42f0adab4594b24bb0f3c33e2bd3857c3f",
-                "sha256:a785b5f446f6635810776d9f5f5d23e6a2a2f728ea982648370afaf0dfdf2627"
+                "sha256:48d267c10d11d8e17805bf896071c0a3e8efb6f79f6634a90e6faac4c2f8a1a0",
+                "sha256:73d654950b5f5e7e4f67c05183d2169d4f7518ceb87734eb0d68f9e43be59f1c"
             ],
             "index": "pypi",
-            "version": "==3.2.1"
+            "version": "==3.3.0"
         },
         "django-heroku": {
             "hashes": [
@@ -103,6 +103,14 @@
             ],
             "index": "pypi",
             "version": "==0.3.1"
+        },
+        "django-pwa": {
+            "hashes": [
+                "sha256:88a844095ec3dc38ec8edc8d1f95247eccaebefeb41484fb94c10631881b0eb7",
+                "sha256:caf9d6e2a792def272e6cb496f594a9821c4d73cb5117d33560bc7b7b82d6132"
+            ],
+            "index": "pypi",
+            "version": "==1.0.8"
         },
         "djangorestframework": {
             "hashes": [
@@ -219,10 +227,10 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:3c292b474fda1671ec57d46d739d072bfd495a4f51ad01a055121d81e952b7a3",
-                "sha256:82f77b9bee21c1bafbf35a84905d604d5d1223801d639cf3ed140bd651c08752"
+                "sha256:4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8",
+                "sha256:998416ba6962ae7fbd6596850b80e17859a5753ba17c32284f67bfff33784181"
             ],
-            "version": "==20.3"
+            "version": "==20.4"
         },
         "psycopg2": {
             "hashes": [
@@ -431,10 +439,10 @@
         },
         "toml": {
             "hashes": [
-                "sha256:229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c",
-                "sha256:235682dd292d5899d361a811df37e04a8828a5b1da3115886b73cf81ebc9100e"
+                "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f",
+                "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"
             ],
-            "version": "==0.10.0"
+            "version": "==0.10.1"
         },
         "typed-ast": {
             "hashes": [
