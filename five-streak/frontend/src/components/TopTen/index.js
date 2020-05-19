@@ -29,7 +29,7 @@ class TopTen extends Component {
             <React.Fragment>
                 <div className="container">
                     <div className="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h1>Top 10 Active Streaks</h1>
+                        <h3>Top 10 Active Streaks</h3>
                     </div>
                     <ol className="list-group">
                         {this.state.top_ten.map((streak) => {

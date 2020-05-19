@@ -107,7 +107,7 @@ class MyStreaks extends Component {
             <React.Fragment>
                 <div className="container">
                     <div className="d-sm-flex justify-content-between align-items-center mb-1">
-                        <h1>Welcome, {this.props.username}</h1>
+                        <h3>Welcome, {this.props.username}</h3>
                     </div>
                     <hr />
                     <div className="d-sm-flex justify-content-between align-items-center mb-4">

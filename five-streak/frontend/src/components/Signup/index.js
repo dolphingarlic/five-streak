@@ -27,9 +27,6 @@ class Signup extends Component {
         return (
             <React.Fragment>
                 <div className="container">
-                    <div className="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 className="text-dark mb-0">Signup</h3>
-                    </div>
                     <Form
                         onSubmit={(e) => {
                             this.props.handleSignup(e, this.state);
@@ -37,6 +34,7 @@ class Signup extends Component {
                         }}
                         className="Signup"
                     >
+                        <h3>Signup</h3>
                         <Form.Group controlId="username">
                             <Form.Label>Username</Form.Label>
                             <Form.Control

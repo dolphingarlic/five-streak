@@ -10,9 +10,9 @@ from .serializers import UserSerializer, StreakSerializer
 
 
 class UserViewSet(ModelViewSet):
-    '''
+    """
     API endpoint that allows users to be viewed or edited.
-    '''
+    """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = (permissions.AllowAny),
@@ -20,18 +20,18 @@ class UserViewSet(ModelViewSet):
 
 
 class StreakViewSet(ModelViewSet):
-    '''
+    """
     API endpoint that allows streaks to be viewed or edited.
-    '''
+    """
     queryset = Streak.objects.all().order_by('-start_date')
     serializer_class = StreakSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class TopTenActiveStreaksView(APIView):
-    '''
+    """
     API endpoint that returns the top 10 active streaks by length and action count.
-    '''
+    """
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request, format=None):
@@ -42,9 +42,9 @@ class TopTenActiveStreaksView(APIView):
 
 
 class MyStreaksView(APIView):
-    '''
+    """
     API endpoint that returns the current user's streaks.
-    '''
+    """
     permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request, format=None):
@@ -55,9 +55,9 @@ class MyStreaksView(APIView):
 
 
 class LogoutAndBlacklistRefreshTokenForUserView(APIView):
-    '''
+    """
     API endpoint that logs the current user out and blacklists their JWT tokens.
-    '''
+    """
     permission_classes = (permissions.AllowAny,)
     authentication_classes = ()
 
@@ -72,9 +72,9 @@ class LogoutAndBlacklistRefreshTokenForUserView(APIView):
 
 
 class CurrentUserView(APIView):
-    '''
+    """
     API endpoint that returns the current user.
-    '''
+    """
     permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request, format=None):

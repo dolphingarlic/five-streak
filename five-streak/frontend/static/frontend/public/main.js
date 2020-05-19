@@ -708,11 +708,21 @@ var Home = /*#__PURE__*/function (_Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, this.props.logged_in ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "jumbotron"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UpdateStreak__WEBPACK_IMPORTED_MODULE_2__["default"], null)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Do the Five"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Wash your hands"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cough in your elbow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Don't touch your face"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Keep distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Stay home"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Help stop COVID-19"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Do the Five and keep a streak going!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Challenge friends and family to record their streaks!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Share your streak on social media!")))));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container fluid text-md-left"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, this.props.logged_in ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UpdateStreak__WEBPACK_IMPORTED_MODULE_2__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "static/frontend/flatten-the-curve.png",
+        alt: "Flatten the curve",
+        className: "w-100"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mb-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Do the Five"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Wash your hands"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Cough in your elbow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Don't touch your face"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Keep distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Stay home"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Help stop COVID-19"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Do the Five and keep a streak going!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Flatten the curve!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Challenge friends and family to record their streaks!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Share your streak on social media!")))))));
     }
   }]);
 
@@ -809,18 +819,14 @@ var Login = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-sm-flex justify-content-between align-items-center mb-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "text-dark mb-0"
-      }, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onSubmit: function onSubmit(e) {
           _this2.props.handleLogin(e, _this2.state);
 
           _this2.props.history.push("/");
         },
         className: "Login"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
         controlId: "username"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Label, null, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Control, {
         value: this.state.username,
@@ -1045,7 +1051,7 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-sm-flex justify-content-between align-items-center mb-1"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome, ", this.props.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome, ", this.props.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-sm-flex justify-content-between align-items-center mb-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "text-dark mb-0"
@@ -1293,18 +1299,14 @@ var Signup = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-sm-flex justify-content-between align-items-center mb-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "text-dark mb-0"
-      }, "Signup")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onSubmit: function onSubmit(e) {
           _this2.props.handleSignup(e, _this2.state);
 
           _this2.props.history.push("/");
         },
         className: "Signup"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Signup"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
         controlId: "username"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Label, null, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Control, {
         value: this.state.username,
@@ -1480,7 +1482,7 @@ var TopTen = /*#__PURE__*/function (_Component) {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-sm-flex justify-content-between align-items-center mb-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Top 10 Active Streaks")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Top 10 Active Streaks")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
         className: "list-group"
       }, this.state.top_ten.map(function (streak) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1568,6 +1570,7 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
+      loaded: false,
       done: false,
       wash: false,
       cough: false,
@@ -1617,36 +1620,35 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
                 });
 
               case 5:
-                _context.next = 10;
+                _context.next = 9;
                 break;
 
               case 7:
-                console.log(this.state.action_count);
-                _context.next = 10;
+                _context.next = 9;
                 return _axiosApi__WEBPACK_IMPORTED_MODULE_5__["default"].post("/streaks/", {
                   action_count: this.state.action_count
                 });
 
-              case 10:
-                _context.next = 15;
+              case 9:
+                _context.next = 14;
                 break;
 
-              case 12:
-                _context.prev = 12;
+              case 11:
+                _context.prev = 11;
                 _context.t0 = _context["catch"](1);
                 throw _context.t0;
 
-              case 15:
+              case 14:
                 this.setState({
                   done: true
                 });
 
-              case 16:
+              case 15:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 12]]);
+        }, _callee, this, [[1, 11]]);
       }));
 
       function updateStreak(_x) {
@@ -1682,20 +1684,23 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
                     });
                   }
                 });
-                _context2.next = 10;
+                this.setState({
+                  loaded: true
+                });
+                _context2.next = 11;
                 break;
 
-              case 7:
-                _context2.prev = 7;
+              case 8:
+                _context2.prev = 8;
                 _context2.t0 = _context2["catch"](0);
                 throw _context2.t0;
 
-              case 10:
+              case 11:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 7]]);
+        }, _callee2, this, [[0, 8]]);
       }));
 
       function componentDidMount() {
@@ -1709,14 +1714,9 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      if (this.state.done) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container fluid"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-6"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Well Done"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You kept your streak today. Come back tomorrow to keep it going!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-6 d-flex justify-content-center text-center"
+      if (!this.state.loaded) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
+      if (this.state.done) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Well Done"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You kept your streak today. Come back tomorrow to keep it going!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-center my-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rewards__WEBPACK_IMPORTED_MODULE_3__["default"], {
         ref: function ref(_ref) {
           _this3.reward = _ref;
@@ -1730,16 +1730,10 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
         onClick: function onClick() {
           return _this3.confetti();
         }
-      }, "Kept my Streak!")))));
+      }, "Kept my Streak!"))));
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onSubmit: this.updateStreak
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container fluid"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-6"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Today I..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Today I..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
         custom: true,
         type: "checkbox",
         id: "wash",
@@ -1752,7 +1746,7 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
         id: "cough",
         checked: this.state.cough,
         onChange: this.handleChange,
-        label: "coughed in my elbow"
+        label: "didn't cough outside my elbow"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
         custom: true,
         type: "checkbox",
@@ -1775,12 +1769,13 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
         onChange: this.handleChange,
         label: "stayed home"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-6 d-flex justify-content-center text-center"
+        className: "d-flex justify-content-center my-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rewards__WEBPACK_IMPORTED_MODULE_3__["default"], {
         ref: function ref(_ref2) {
           _this3.reward = _ref2;
         },
-        type: "confetti"
+        type: "confetti",
+        className: "justify-content-center text-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         block: true,
         disabled: !this.state.action_count,
@@ -1791,7 +1786,7 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
         onClick: function onClick() {
           return _this3.confetti();
         }
-      }, "Keep my Streak!"))))));
+      }, "Keep my Streak!"))));
     }
   }]);
 
@@ -15109,7 +15104,7 @@ module.exports = __webpack_require__(/*! ./modules/_core */ "./node_modules/core
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "html {\n    position: relative;\n    min-height: 100%;\n}\n\nbody {\n    margin-bottom: 160px !important; /* Height of the footer */\n    padding: 0;\n    color: #333;\n    background-color: #eee;\n}\n\nfooter {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 160px; /* Set the fixed height of the footer here */\n}\n\n/* Override Bootstrap Styling */\n\n.btn-primary {\n    background-color: #025fce !important;\n}\n\n.jumbotron {\n    text-align: left;\n}\n\nbutton:focus,\nbutton:active {\n    outline: none !important;\n    box-shadow: none !important;\n}\n\n/* Custom fonts */\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: 'Lato', sans-serif !important;\n}\np, div {\n    font-family: 'Open Sans', sans-serif !important;\n}\n\n/* Font size */\n\n@media screen and (max-width: 767px) {\n    html {\n        font-size: .8rem;\n    }\n}\n@media (min-width: 768px) and (max-width: 991px) {\n    html {\n        font-size: 1rem;\n    }\n}\n@media (min-width: 992px) and (max-width: 1199px) {\n    html {\n        font-size: 1.2rem;\n    }\n}\n@media screen and (min-width: 1200px) {\n    html {\n        font-size: 1.4rem;\n    }\n}", ""]);
+exports.push([module.i, "html {\n    position: relative;\n    min-height: 100%;\n}\n\nbody {\n    margin-bottom: 160px !important; /* Height of the footer */\n    padding: 0;\n    color: #333;\n    background-color: #deeede;\n}\n\nfooter {\n    position: absolute;\n    bottom: 0;\n    width: 100%;\n    height: 160px; /* Set the fixed height of the footer here */\n}\n\n/* Override Bootstrap Styling */\n\n.btn-primary {\n    background-color: #025fce !important;\n}\n\n.jumbotron {\n    text-align: left;\n}\n\nbutton:focus,\nbutton:active {\n    outline: none !important;\n    box-shadow: none !important;\n}\n\n/* Custom fonts */\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: 'Lato', sans-serif !important;\n}\np, div {\n    font-family: 'Open Sans', sans-serif !important;\n}\n\n/* Font size */\n\n@media screen and (max-width: 767px) {\n    html {\n        font-size: .8rem;\n    }\n}\n@media (min-width: 768px) and (max-width: 991px) {\n    html {\n        font-size: 1rem;\n    }\n}\n@media (min-width: 992px) and (max-width: 1199px) {\n    html {\n        font-size: 1.2rem;\n    }\n}\n@media screen and (min-width: 1200px) {\n    html {\n        font-size: 1.4rem;\n    }\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -15127,7 +15122,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".Footer {\n  background-color: #1d1d1d;\n  padding-top: 2rem;\n  padding-bottom: 2rem;\n}\n\n.Copyright {\n    background-color: #4d4d4d;\n    color: #fff;\n}\n\n.FooterTitle {\n  color: #fff;\n}\n\n.FooterDescription {\n  color: #fff;\n}\n\n.FooterLink,\n.FooterLink:hover {\n  color: #fff;\n}\n", ""]);
+exports.push([module.i, ".Footer {\n  background-color: #1d1d1d;\n  padding-top: 2rem;\n  padding-bottom: 2rem;\n}\n\n.Copyright {\n    background-color: #313131;\n    color: #fff;\n}\n\n.FooterTitle {\n  color: #fff;\n}\n\n.FooterDescription {\n  color: #fff;\n}\n\n.FooterLink,\n.FooterLink:hover {\n  color: #fff;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

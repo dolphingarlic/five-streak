@@ -11,6 +11,7 @@ class UpdateStreak extends Component {
         super(props);
 
         this.state = {
+            loaded: false,
             done: false,
 
             wash: false,
@@ -50,7 +51,6 @@ class UpdateStreak extends Component {
                         this.state.action_count,
                 });
             } else {
-                console.log(this.state.action_count);
                 await axiosInstance.post("/streaks/", {
                     action_count: this.state.action_count,
                 });
@@ -71,112 +71,109 @@ class UpdateStreak extends Component {
                     else this.setState({ done: false, streak: streak });
                 }
             });
+            this.setState({ loaded: true });
         } catch (error) {
             throw error;
         }
     }
 
     render() {
+        if (!this.state.loaded) return <React.Fragment />
         if (this.state.done)
             return (
-                <div className="container fluid">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <h1>Well Done</h1>
-                            <p>
-                                You kept your streak today. Come back tomorrow
-                                to keep it going!
-                            </p>
-                        </div>
-                        <div className="col-md-6 d-flex justify-content-center text-center">
-                            <Reward
-                                ref={(ref) => {
-                                    this.reward = ref;
-                                }}
-                                type="confetti"
-                            >
-                                <Button
-                                    block
-                                    variant="success"
-                                    className="btn-circle rounded-circle"
-                                    size="lg"
-                                    onClick={() => this.confetti()}
-                                >
-                                    Kept my Streak!
-                                </Button>
-                            </Reward>
-                        </div>
+                <React.Fragment>
+                    <div>
+                        <h3>Well Done</h3>
+                        <p>
+                            You kept your streak today. Come back tomorrow to
+                            keep it going!
+                        </p>
                     </div>
-                </div>
+                    <div className="d-flex justify-content-center my-4">
+                        <Reward
+                            ref={(ref) => {
+                                this.reward = ref;
+                            }}
+                            type="confetti"
+                        >
+                            <Button
+                                block
+                                variant="success"
+                                className="btn-circle rounded-circle"
+                                size="lg"
+                                onClick={() => this.confetti()}
+                            >
+                                Kept my Streak!
+                            </Button>
+                        </Reward>
+                    </div>
+                </React.Fragment>
             );
         return (
             <Form onSubmit={this.updateStreak}>
-                <div className="container fluid">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <h1>Today I...</h1>
-                            <Form.Check
-                                custom
-                                type="checkbox"
-                                id="wash"
-                                checked={this.state.wash}
-                                onChange={this.handleChange}
-                                label="washed my hands"
-                            />
-                            <Form.Check
-                                custom
-                                type="checkbox"
-                                id="cough"
-                                checked={this.state.cough}
-                                onChange={this.handleChange}
-                                label="coughed in my elbow"
-                            />
-                            <Form.Check
-                                custom
-                                type="checkbox"
-                                id="touch"
-                                checked={this.state.touch}
-                                onChange={this.handleChange}
-                                label="didn't touch my face"
-                            />
-                            <Form.Check
-                                custom
-                                type="checkbox"
-                                id="distance"
-                                checked={this.state.distance}
-                                onChange={this.handleChange}
-                                label="kept distance"
-                            />
-                            <Form.Check
-                                custom
-                                type="checkbox"
-                                id="home"
-                                checked={this.state.home}
-                                onChange={this.handleChange}
-                                label="stayed home"
-                            />
-                        </div>
-                        <div className="col-md-6 d-flex justify-content-center text-center">
-                            <Reward
-                                ref={(ref) => {
-                                    this.reward = ref;
-                                }}
-                                type="confetti"
-                            >
-                                <Button
-                                    block
-                                    disabled={!this.state.action_count}
-                                    type="submit"
-                                    variant="outline-success"
-                                    className="btn-circle rounded-circle"
-                                    size="lg"
-                                    onClick={() => this.confetti()}
-                                >
-                                    Keep my Streak!
-                                </Button>
-                            </Reward>
-                        </div>
-                    </div>
+                <div>
+                    <h3>Today I...</h3>
+                    <Form.Check
+                        custom
+                        type="checkbox"
+                        id="wash"
+                        checked={this.state.wash}
+                        onChange={this.handleChange}
+                        label="washed my hands"
+                    />
+                    <Form.Check
+                        custom
+                        type="checkbox"
+                        id="cough"
+                        checked={this.state.cough}
+                        onChange={this.handleChange}
+                        label="didn't cough outside my elbow"
+                    />
+                    <Form.Check
+                        custom
+                        type="checkbox"
+                        id="touch"
+                        checked={this.state.touch}
+                        onChange={this.handleChange}
+                        label="didn't touch my face"
+                    />
+                    <Form.Check
+                        custom
+                        type="checkbox"
+                        id="distance"
+                        checked={this.state.distance}
+                        onChange={this.handleChange}
+                        label="kept distance"
+                    />
+                    <Form.Check
+                        custom
+                        type="checkbox"
+                        id="home"
+                        checked={this.state.home}
+                        onChange={this.handleChange}
+                        label="stayed home"
+                    />
+                </div>
+                <div className="d-flex justify-content-center my-4">
+                    <Reward
+                        ref={(ref) => {
+                            this.reward = ref;
+                        }}
+                        type="confetti"
+                        className="justify-content-center text-center"
+                    >
+                        <Button
+                            block
+                            disabled={!this.state.action_count}
+                            type="submit"
+                            variant="outline-success"
+                            className="btn-circle rounded-circle"
+                            size="lg"
+                            onClick={() => this.confetti()}
+                        >
+                            Keep my Streak!
+                        </Button>
+                    </Reward>
                 </div>
             </Form>
         );
