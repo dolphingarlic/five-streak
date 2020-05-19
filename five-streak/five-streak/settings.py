@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
 
@@ -119,7 +119,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # DRF Settings
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -144,11 +143,13 @@ SIMPLE_JWT = {
 }
 
 # CORS
-
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:8000',
     'http://localhost:8000',
 ]
+
+# SSL
+SECURE_SSL_REDIRECT = 'SECURE_SSL_REDIRECT' in os.environ
 
 # PWA Settings
 PWA_APP_NAME = 'Five Streak'
