@@ -75,7 +75,6 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
     logged_in: PropTypes.bool.isRequired,
-    username: PropTypes.string.isRequired,
     handleLogout: PropTypes.func.isRequired,
 };
 

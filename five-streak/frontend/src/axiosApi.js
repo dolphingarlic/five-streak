@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://five-streak.herokuapp.com/api/";
+const baseURL = "https://five-streak.herokuapp.com/api/";
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
