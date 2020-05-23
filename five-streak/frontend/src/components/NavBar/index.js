@@ -3,8 +3,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./navbar.module.css";
 
+import "./navbar.module.css";
+import Brand from "../../../static/frontend/brand.svg";
 // import axiosInstance from "../../axiosApi";
 
 class NavBar extends Component {
@@ -23,7 +24,7 @@ class NavBar extends Component {
                 >
                     <Link className="navbar-brand" to="/">
                         <img
-                            src="static/frontend/brand.svg"
+                            src={Brand}
                             className="d-inline-block align-top brand-image"
                             alt="logo"
                         />

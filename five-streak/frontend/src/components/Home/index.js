@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import FlattenTheCurve from "../../../static/frontend/flatten-the-curve.png";
 import UpdateStreak from "../UpdateStreak";
 
 class Home extends Component {
@@ -18,7 +19,7 @@ class Home extends Component {
                                 <UpdateStreak />
                             ) : (
                                 <img
-                                    src="static/frontend/flatten-the-curve.png"
+                                    src={FlattenTheCurve}
                                     alt="Flatten the curve"
                                     className="w-100"
                                 />
