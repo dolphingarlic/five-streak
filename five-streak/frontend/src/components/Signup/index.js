@@ -10,7 +10,7 @@ class Signup extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { username: "", password: "", email: "" };
+        this.state = { username: "", password: "" };
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -34,7 +34,7 @@ class Signup extends Component {
                         }}
                         className="Signup"
                     >
-                        <h3>Signup</h3>
+                        <h3>Sign Up</h3>
                         <Form.Group controlId="username">
                             <Form.Label>Username</Form.Label>
                             <Form.Control
@@ -43,14 +43,14 @@ class Signup extends Component {
                                 type="text"
                             />
                         </Form.Group>
-                        <Form.Group controlId="email">
+                        {/* <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 value={this.state.email}
                                 onChange={this.handleChange}
                                 type="text"
                             />
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group controlId="password">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
@@ -64,7 +64,7 @@ class Signup extends Component {
                             disabled={!this.validateForm()}
                             type="submit"
                         >
-                            Signup
+                            Sign Up
                         </Button>
                     </Form>
                 </div>

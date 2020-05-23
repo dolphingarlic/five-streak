@@ -462,7 +462,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var baseURL = "https://five-streak.herokuapp.com/api/";
+var baseURL = "http://127.0.0.1:8000/api/";
 var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
   baseURL: baseURL,
   timeout: 5000,
@@ -1170,7 +1170,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
       }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         className: "nav-link",
         to: "/signup/"
-      }, "Signup"))))));
+      }, "Sign Up"))))));
     }
   }]);
 
@@ -1274,8 +1274,7 @@ var Signup = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
     _this.state = {
       username: "",
-      password: "",
-      email: ""
+      password: ""
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -1305,16 +1304,10 @@ var Signup = /*#__PURE__*/function (_Component) {
           _this2.props.history.push("/");
         },
         className: "Signup"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Signup"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
         controlId: "username"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Label, null, "Username"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Control, {
         value: this.state.username,
-        onChange: this.handleChange,
-        type: "text"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
-        controlId: "email"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Control, {
-        value: this.state.email,
         onChange: this.handleChange,
         type: "text"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
@@ -1327,7 +1320,7 @@ var Signup = /*#__PURE__*/function (_Component) {
         block: true,
         disabled: !this.validateForm(),
         type: "submit"
-      }, "Signup"))));
+      }, "Sign Up"))));
     }
   }]);
 
