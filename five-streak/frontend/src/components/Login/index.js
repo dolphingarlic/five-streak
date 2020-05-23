@@ -10,7 +10,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { username: "", password: "" };
+        this.state = { username: "", password: "", login_error: "" };
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -28,9 +28,17 @@ class Login extends Component {
             <React.Fragment>
                 <div className="container">
                     <Form
-                        onSubmit={(e) => {
-                            this.props.handleLogin(e, this.state);
-                            this.props.history.push("/");
+                        onSubmit={async (e) => {
+                            try {
+                                await this.props.handleLogin(e, this.state);
+                                this.props.history.push("/");
+                            } catch (error) {
+                                console.log(error.stack);
+                                this.setState({
+                                    login_error:
+                                        "Incorrect username or password",
+                                });
+                            }
                         }}
                         className="Login"
                     >
@@ -50,6 +58,9 @@ class Login extends Component {
                                 onChange={this.handleChange}
                                 type="password"
                             />
+                            <Form.Text className="form-text text-danger">
+                                {this.state.login_error}
+                            </Form.Text>
                         </Form.Group>
                         <Button
                             block

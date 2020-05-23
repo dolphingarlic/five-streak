@@ -10,7 +10,15 @@ class Signup extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { username: "", password: "" };
+        this.state = {
+            username: "",
+            password: "",
+            signup_errors: {
+                username: "",
+                email: "",
+                password: "",
+            },
+        };
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -28,9 +36,16 @@ class Signup extends Component {
             <React.Fragment>
                 <div className="container">
                     <Form
-                        onSubmit={(e) => {
-                            this.props.handleSignup(e, this.state);
-                            this.props.history.push("/");
+                        onSubmit={async (e) => {
+                            try {
+                                await this.props.handleSignup(e, this.state);
+                                this.props.history.push("/");
+                            } catch (error) {
+                                console.log(error.stack);
+                                this.setState({
+                                    signup_errors: error.response.data,
+                                });
+                            }
                         }}
                         className="Signup"
                     >
@@ -42,6 +57,9 @@ class Signup extends Component {
                                 onChange={this.handleChange}
                                 type="text"
                             />
+                            <Form.Text className="form-text text-danger">
+                                {this.state.signup_errors.username}
+                            </Form.Text>
                         </Form.Group>
                         {/* <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
@@ -50,6 +68,9 @@ class Signup extends Component {
                                 onChange={this.handleChange}
                                 type="text"
                             />
+                            <Form.Text className="form-text text-danger">
+                                {this.state.signup_errors.email}
+                            </Form.Text>
                         </Form.Group> */}
                         <Form.Group controlId="password">
                             <Form.Label>Password</Form.Label>
@@ -58,6 +79,9 @@ class Signup extends Component {
                                 onChange={this.handleChange}
                                 type="password"
                             />
+                            <Form.Text className="form-text text-danger">
+                                {this.state.signup_errors.password}
+                            </Form.Text>
                         </Form.Group>
                         <Button
                             block

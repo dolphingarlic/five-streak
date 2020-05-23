@@ -755,6 +755,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_module_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_login_module_css__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -796,7 +800,8 @@ var Login = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
     _this.state = {
       username: "",
-      password: ""
+      password: "",
+      login_error: ""
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -820,11 +825,43 @@ var Login = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onSubmit: function onSubmit(e) {
-          _this2.props.handleLogin(e, _this2.state);
+        onSubmit: /*#__PURE__*/function () {
+          var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.prev = 0;
+                    _context.next = 3;
+                    return _this2.props.handleLogin(e, _this2.state);
 
-          _this2.props.history.push("/");
-        },
+                  case 3:
+                    _this2.props.history.push("/");
+
+                    _context.next = 10;
+                    break;
+
+                  case 6:
+                    _context.prev = 6;
+                    _context.t0 = _context["catch"](0);
+                    console.log(_context.t0.stack);
+
+                    _this2.setState({
+                      login_error: "Incorrect username or password"
+                    });
+
+                  case 10:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, null, [[0, 6]]);
+          }));
+
+          return function (_x) {
+            return _ref.apply(this, arguments);
+          };
+        }(),
         className: "Login"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
         controlId: "username"
@@ -838,7 +875,9 @@ var Login = /*#__PURE__*/function (_Component) {
         value: this.state.password,
         onChange: this.handleChange,
         type: "password"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Text, {
+        className: "form-text text-danger"
+      }, this.state.login_error)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         block: true,
         disabled: !this.validateForm(),
         type: "submit"
@@ -1143,7 +1182,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         className: "navbar-brand",
         to: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "static/frontend/brand.png",
+        src: "static/frontend/brand.svg",
         className: "d-inline-block align-top brand-image",
         alt: "logo"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"].Toggle, {
@@ -1233,6 +1272,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _signup_module_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_signup_module_css__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1274,7 +1317,12 @@ var Signup = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
     _this.state = {
       username: "",
-      password: ""
+      password: "",
+      signup_errors: {
+        username: "",
+        email: "",
+        password: ""
+      }
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -1298,11 +1346,43 @@ var Signup = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onSubmit: function onSubmit(e) {
-          _this2.props.handleSignup(e, _this2.state);
+        onSubmit: /*#__PURE__*/function () {
+          var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.prev = 0;
+                    _context.next = 3;
+                    return _this2.props.handleSignup(e, _this2.state);
 
-          _this2.props.history.push("/");
-        },
+                  case 3:
+                    _this2.props.history.push("/");
+
+                    _context.next = 10;
+                    break;
+
+                  case 6:
+                    _context.prev = 6;
+                    _context.t0 = _context["catch"](0);
+                    console.log(_context.t0.stack);
+
+                    _this2.setState({
+                      signup_errors: _context.t0.response.data
+                    });
+
+                  case 10:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, null, [[0, 6]]);
+          }));
+
+          return function (_x) {
+            return _ref.apply(this, arguments);
+          };
+        }(),
         className: "Signup"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
         controlId: "username"
@@ -1310,13 +1390,17 @@ var Signup = /*#__PURE__*/function (_Component) {
         value: this.state.username,
         onChange: this.handleChange,
         type: "text"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Text, {
+        className: "form-text text-danger"
+      }, this.state.signup_errors.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
         controlId: "password"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Label, null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Control, {
         value: this.state.password,
         onChange: this.handleChange,
         type: "password"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Text, {
+        className: "form-text text-danger"
+      }, this.state.signup_errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         block: true,
         disabled: !this.validateForm(),
         type: "submit"
@@ -15132,7 +15216,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".Login {\n    margin: 1rem;\n}\n\n@media all and (min-width: 480px) {\n    .Login {\n        padding: 60px 0;\n        margin: 0 auto;\n        max-width: 320px;\n    }\n}\n", ""]);
+exports.push([module.i, ".Login {\n    margin: 1rem;\n}\n\n@media all and (min-width: 480px) {\n    .Login {\n        padding: 60px 0;\n        margin: 0 auto;\n        max-width: 400px;\n    }\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -15168,7 +15252,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".Signup {\n    margin: 1rem;\n}\n\n@media all and (min-width: 480px) {\n    .Signup {\n        padding: 60px 0;\n        margin: 0 auto;\n        max-width: 320px;\n    }\n}\n", ""]);
+exports.push([module.i, ".Signup {\n    margin: 1rem;\n}\n\n@media all and (min-width: 480px) {\n    .Signup {\n        padding: 60px 0;\n        margin: 0 auto;\n        max-width: 400px;\n    }\n}\n", ""]);
 // Exports
 module.exports = exports;
 

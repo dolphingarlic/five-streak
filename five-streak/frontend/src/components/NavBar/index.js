@@ -23,7 +23,7 @@ class NavBar extends Component {
                 >
                     <Link className="navbar-brand" to="/">
                         <img
-                            src="static/frontend/brand.png"
+                            src="static/frontend/brand.svg"
                             className="d-inline-block align-top brand-image"
                             alt="logo"
                         />
