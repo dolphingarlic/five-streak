@@ -72,11 +72,11 @@ axiosInstance.interceptors.response.use(
                         tokenParts.exp,
                         now
                     );
-                    window.location.href = "/login/";
+                    window.location.href = "/";
                 }
             } else {
                 console.log("Refresh token not available.");
-                window.location.href = "/login/";
+                window.location.href = "/";
             }
         }
 

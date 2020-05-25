@@ -488,7 +488,7 @@ axiosInstance.interceptors.response.use(function (response) {
               break;
             }
 
-            window.location.href = "/login/";
+            window.location.href = "/";
             return _context.abrupt("return", Promise.reject(error));
 
           case 4:
@@ -541,7 +541,7 @@ axiosInstance.interceptors.response.use(function (response) {
           case 28:
             localStorage.removeItem("refresh_token");
             console.log("Refresh token is expired", tokenParts.exp, now);
-            window.location.href = "/login/";
+            window.location.href = "/";
 
           case 31:
             _context.next = 35;
@@ -549,7 +549,7 @@ axiosInstance.interceptors.response.use(function (response) {
 
           case 33:
             console.log("Refresh token not available.");
-            window.location.href = "/login/";
+            window.location.href = "/";
 
           case 35:
             return _context.abrupt("return", Promise.reject(error));

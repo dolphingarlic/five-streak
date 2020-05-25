@@ -171,6 +171,8 @@ PWA_APP_SPLASH_SCREEN = [
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
 
+PWA_APP_DEBUG_MODE = 'DEBUG' in os.environ
+
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())

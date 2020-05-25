@@ -266,4 +266,5 @@ dist
 # OTHER #
 #########
 
+staticfiles/
 .vscode/

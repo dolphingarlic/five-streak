@@ -3,16 +3,16 @@
     {% load pwa %}
     {% load static %}
     <head>
-        <link rel="icon" href="{% static 'frontend/favicon.png' %}" />
-        <link rel="apple-touch-icon" href="{% static 'frontend/favicon.png' %}" />
-        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
-        <title>Five Streak</title>
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Do the Five. Keep a Streak. Save Lives.">
         <meta name="theme-color" content="#deeede">
         {% progressive_web_app_meta %}
+
+        <link rel="icon" href="{% static 'frontend/favicon.png' %}" />
+        <link rel="apple-touch-icon" href="{% static 'frontend/favicon.png' %}" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Five Streak</title>
     </head>
     <body>
         <div id="root" class="content"></div>
