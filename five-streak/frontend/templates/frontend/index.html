@@ -9,6 +9,16 @@
         <meta name="theme-color" content="#deeede">
         {% progressive_web_app_meta %}
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114696886-5"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-114696886-5');
+        </script>
+
         <link rel="icon" href="{% static 'frontend/favicon.png' %}" />
         <link rel="apple-touch-icon" href="{% static 'frontend/favicon.png' %}" />
         <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
