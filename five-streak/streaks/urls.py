@@ -4,7 +4,7 @@ from rest_framework_simplejwt import views as jwt_views
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from .views import UserViewSet, StreakViewSet, TopTenActiveStreaksView, MyStreaksView, LogoutAndBlacklistRefreshTokenForUserView, CurrentUserView
+from streaks.views import *
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -31,9 +31,9 @@ urlpatterns = [
     path('', include(router.urls)),
 
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
-        schema_view.without_ui(cache_timeout=0), name='schema-json'),
+            schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger',
-                                           cache_timeout=0), name='schema-swagger-ui'),
+                                               cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc',
-                                         cache_timeout=0), name='schema-redoc'),
+                                             cache_timeout=0), name='schema-redoc'),
 ]

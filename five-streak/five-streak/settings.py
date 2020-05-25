@@ -118,6 +118,10 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 # DRF Settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -170,8 +174,6 @@ PWA_APP_SPLASH_SCREEN = [
 ]
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
-
-PWA_APP_DEBUG_MODE = False
 
 # Configure Django App for Heroku.
 import django_heroku

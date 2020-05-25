@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Streak
+from streaks.models import Streak
 
 
 class UserSerializer(serializers.ModelSerializer):

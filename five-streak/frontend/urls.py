@@ -1,8 +1,9 @@
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 
-from .views import index
+from frontend.views import index
 
 urlpatterns = [
+    path('', include('pwa.urls')),
     path('', index),
     re_path(r'^.*/$', index),
 ]

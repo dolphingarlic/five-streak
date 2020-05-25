@@ -5,8 +5,8 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import User
 
-from .models import Streak
-from .serializers import UserSerializer, StreakSerializer
+from streaks.models import Streak
+from streaks.serializers import UserSerializer, StreakSerializer
 
 
 class UserViewSet(ModelViewSet):
