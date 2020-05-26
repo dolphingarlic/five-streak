@@ -85,7 +85,7 @@ class App extends Component {
 
             this.setState({ logged_in: false, username: "" });
         } catch (error) {
-            console.log(error.stack);
+            throw error;
         }
     }
 

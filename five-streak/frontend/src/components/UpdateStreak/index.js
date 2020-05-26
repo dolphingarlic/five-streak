@@ -66,9 +66,14 @@ class UpdateStreak extends Component {
             const response = await axiosInstance.get("/my-streaks/");
             response.data.forEach((streak) => {
                 if (streak["active"]) {
-                    if (Date.now() - Date.parse(streak.last_updated) < 86400000)
+                    if (
+                        Date.now() - Date.parse(streak.last_updated) <
+                        86400000
+                    ) {
                         this.setState({ done: true });
-                    else this.setState({ done: false, streak: streak });
+                    } else {
+                        this.setState({ done: false, streak });
+                    }
                 }
             });
             this.setState({ loaded: true });
@@ -78,8 +83,9 @@ class UpdateStreak extends Component {
     }
 
     render() {
-        if (!this.state.loaded) return <React.Fragment />
-        if (this.state.done)
+        if (!this.state.loaded) {
+            return <React.Fragment />;
+        } else if (this.state.done) {
             return (
                 <React.Fragment>
                     <div>
@@ -109,74 +115,76 @@ class UpdateStreak extends Component {
                     </div>
                 </React.Fragment>
             );
-        return (
-            <Form onSubmit={this.updateStreak}>
-                <div>
-                    <h3>Today I...</h3>
-                    <Form.Check
-                        custom
-                        type="checkbox"
-                        id="wash"
-                        checked={this.state.wash}
-                        onChange={this.handleChange}
-                        label="washed my hands"
-                    />
-                    <Form.Check
-                        custom
-                        type="checkbox"
-                        id="cough"
-                        checked={this.state.cough}
-                        onChange={this.handleChange}
-                        label="didn't cough outside my elbow"
-                    />
-                    <Form.Check
-                        custom
-                        type="checkbox"
-                        id="touch"
-                        checked={this.state.touch}
-                        onChange={this.handleChange}
-                        label="didn't touch my face"
-                    />
-                    <Form.Check
-                        custom
-                        type="checkbox"
-                        id="distance"
-                        checked={this.state.distance}
-                        onChange={this.handleChange}
-                        label="kept distance"
-                    />
-                    <Form.Check
-                        custom
-                        type="checkbox"
-                        id="home"
-                        checked={this.state.home}
-                        onChange={this.handleChange}
-                        label="stayed home"
-                    />
-                </div>
-                <div className="d-flex justify-content-center my-4">
-                    <Reward
-                        ref={(ref) => {
-                            this.reward = ref;
-                        }}
-                        type="confetti"
-                        className="justify-content-center text-center"
-                    >
-                        <Button
-                            block
-                            disabled={!this.state.action_count}
-                            type="submit"
-                            variant="outline-success"
-                            className="btn-circle rounded-circle"
-                            size="lg"
-                            onClick={() => this.confetti()}
+        } else {
+            return (
+                <Form onSubmit={this.updateStreak}>
+                    <div>
+                        <h3>Today I...</h3>
+                        <Form.Check
+                            custom
+                            type="checkbox"
+                            id="wash"
+                            checked={this.state.wash}
+                            onChange={this.handleChange}
+                            label="washed my hands"
+                        />
+                        <Form.Check
+                            custom
+                            type="checkbox"
+                            id="cough"
+                            checked={this.state.cough}
+                            onChange={this.handleChange}
+                            label="didn't cough outside my elbow"
+                        />
+                        <Form.Check
+                            custom
+                            type="checkbox"
+                            id="touch"
+                            checked={this.state.touch}
+                            onChange={this.handleChange}
+                            label="didn't touch my face"
+                        />
+                        <Form.Check
+                            custom
+                            type="checkbox"
+                            id="distance"
+                            checked={this.state.distance}
+                            onChange={this.handleChange}
+                            label="kept distance"
+                        />
+                        <Form.Check
+                            custom
+                            type="checkbox"
+                            id="home"
+                            checked={this.state.home}
+                            onChange={this.handleChange}
+                            label="stayed home"
+                        />
+                    </div>
+                    <div className="d-flex justify-content-center my-4">
+                        <Reward
+                            ref={(ref) => {
+                                this.reward = ref;
+                            }}
+                            type="confetti"
+                            className="justify-content-center text-center"
                         >
-                            Keep my Streak!
-                        </Button>
-                    </Reward>
-                </div>
-            </Form>
-        );
+                            <Button
+                                block
+                                disabled={!this.state.action_count}
+                                type="submit"
+                                variant="outline-success"
+                                className="btn-circle rounded-circle"
+                                size="lg"
+                                onClick={() => this.confetti()}
+                            >
+                                Keep my Streak!
+                            </Button>
+                        </Reward>
+                    </div>
+                </Form>
+            );
+        }
     }
 }
 

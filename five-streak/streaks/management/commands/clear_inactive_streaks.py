@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.db.models import Q
 
 from streaks.models import Streak

@@ -21,13 +21,16 @@ class MyStreaks extends Component {
             let active = Array(),
                 inactive = Array();
             response.data.forEach((streak) => {
-                if (streak["active"]) active.push(streak);
-                else inactive.push(streak);
+                if (streak["active"]) {
+                    active.push(streak);
+                } else {
+                    inactive.push(streak);
+                }
             });
 
             this.setState({
-                active: active,
-                inactive: inactive,
+                active,
+                inactive,
             });
         } catch (error) {
             throw error;
@@ -52,7 +55,7 @@ class MyStreaks extends Component {
                                 <div className="d-flex w-100 justify-content-between">
                                     <h5 className="mb-1">
                                         {streak.days} day
-                                        {streak.days == 1 ? "" : "s"}
+                                        {streak.days === 1 ? "" : "s"}
                                     </h5>
                                     <small>
                                         {streak.start_date} to{" "}

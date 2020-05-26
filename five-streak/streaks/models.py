@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Streak(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+
     action_count = models.IntegerField(default=0)
     active = models.BooleanField(default=True)
 

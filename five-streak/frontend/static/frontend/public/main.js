@@ -375,7 +375,7 @@ var App = /*#__PURE__*/function (_Component) {
               case 10:
                 _context4.prev = 10;
                 _context4.t0 = _context4["catch"](0);
-                console.log(_context4.t0.stack);
+                throw _context4.t0;
 
               case 13:
               case "end":
@@ -493,7 +493,7 @@ axiosInstance.interceptors.response.use(function (response) {
 
           case 4:
             if (!(error.response.data.code === "token_not_valid" && error.response.status === 401 && error.response.statusText === "Unauthorized")) {
-              _context.next = 35;
+              _context.next = 32;
               break;
             }
 
@@ -501,27 +501,26 @@ axiosInstance.interceptors.response.use(function (response) {
             refreshToken = localStorage.getItem("refresh_token");
 
             if (!refreshToken) {
-              _context.next = 33;
+              _context.next = 31;
               break;
             }
 
             tokenParts = JSON.parse(atob(refreshToken.split(".")[1])); // exp date in token is expressed in seconds, while now() returns milliseconds:
 
             now = Math.ceil(Date.now() / 1000);
-            console.log(tokenParts.exp);
 
             if (!(tokenParts.exp > now)) {
-              _context.next = 28;
+              _context.next = 27;
               break;
             }
 
-            _context.prev = 12;
-            _context.next = 15;
+            _context.prev = 11;
+            _context.next = 14;
             return axiosInstance.post("/token/refresh/", {
               refresh: refreshToken
             });
 
-          case 15:
+          case 14:
             response = _context.sent;
             localStorage.setItem("access_token", response.data.access);
             localStorage.setItem("refresh_token", response.data.refresh);
@@ -529,37 +528,35 @@ axiosInstance.interceptors.response.use(function (response) {
             originalRequest.headers["Authorization"] = "JWT " + response.data.access;
             return _context.abrupt("return", axiosInstance(originalRequest));
 
-          case 23:
-            _context.prev = 23;
-            _context.t0 = _context["catch"](12);
-            console.log(_context.t0);
+          case 22:
+            _context.prev = 22;
+            _context.t0 = _context["catch"](11);
+            throw _context.t0;
 
-          case 26:
-            _context.next = 31;
+          case 25:
+            _context.next = 29;
             break;
 
-          case 28:
+          case 27:
             localStorage.removeItem("refresh_token");
-            console.log("Refresh token is expired", tokenParts.exp, now);
             window.location.href = "/";
+
+          case 29:
+            _context.next = 32;
+            break;
 
           case 31:
-            _context.next = 35;
-            break;
-
-          case 33:
-            console.log("Refresh token not available.");
             window.location.href = "/";
 
-          case 35:
+          case 32:
             return _context.abrupt("return", Promise.reject(error));
 
-          case 36:
+          case 33:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[12, 23]]);
+    }, _callee, null, [[11, 22]]);
   }));
 
   return function (_x) {
@@ -840,19 +837,18 @@ var Login = /*#__PURE__*/function (_Component) {
                   case 3:
                     _this2.props.history.push("/");
 
-                    _context.next = 10;
+                    _context.next = 9;
                     break;
 
                   case 6:
                     _context.prev = 6;
                     _context.t0 = _context["catch"](0);
-                    console.log(_context.t0.stack);
 
                     _this2.setState({
                       login_error: "Incorrect username or password"
                     });
 
-                  case 10:
+                  case 9:
                   case "end":
                     return _context.stop();
                 }
@@ -1006,7 +1002,11 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
                 response = _context.sent;
                 active = Array(), inactive = Array();
                 response.data.forEach(function (streak) {
-                  if (streak["active"]) active.push(streak);else inactive.push(streak);
+                  if (streak["active"]) {
+                    active.push(streak);
+                  } else {
+                    inactive.push(streak);
+                  }
                 });
                 this.setState({
                   active: active,
@@ -1055,7 +1055,7 @@ var MyStreaks = /*#__PURE__*/function (_Component) {
             className: "d-flex w-100 justify-content-between"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
             className: "mb-1"
-          }, streak.days, " day", streak.days == 1 ? "" : "s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.start_date, " to", " ", streak.last_updated)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          }, streak.days, " day", streak.days === 1 ? "" : "s"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.start_date, " to", " ", streak.last_updated)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
             className: "mb-1"
           }, "Average daily actions: ", streak.average));
         }));
@@ -1572,7 +1572,7 @@ var TopTen = /*#__PURE__*/function (_Component) {
           className: "d-flex w-100 justify-content-between"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
           className: "mb-1"
-        }, streak.user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.days, " day", streak.days == 1 ? "" : "s")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, streak.user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, streak.days, " day", streak.days === 1 ? "" : "s")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "mb-1"
         }, "Average daily actions: ", streak.average));
       }))));
@@ -1756,12 +1756,16 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
                 response = _context2.sent;
                 response.data.forEach(function (streak) {
                   if (streak["active"]) {
-                    if (Date.now() - Date.parse(streak.last_updated) < 86400000) _this2.setState({
-                      done: true
-                    });else _this2.setState({
-                      done: false,
-                      streak: streak
-                    });
+                    if (Date.now() - Date.parse(streak.last_updated) < 86400000) {
+                      _this2.setState({
+                        done: true
+                      });
+                    } else {
+                      _this2.setState({
+                        done: false,
+                        streak: streak
+                      });
+                    }
                   }
                 });
                 this.setState({
@@ -1794,79 +1798,83 @@ var UpdateStreak = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this3 = this;
 
-      if (!this.state.loaded) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
-      if (this.state.done) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Well Done"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You kept your streak today. Come back tomorrow to keep it going!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex justify-content-center my-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rewards__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        ref: function ref(_ref) {
-          _this3.reward = _ref;
-        },
-        type: "confetti"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        block: true,
-        variant: "success",
-        className: "btn-circle rounded-circle",
-        size: "lg",
-        onClick: function onClick() {
-          return _this3.confetti();
-        }
-      }, "Kept my Streak!"))));
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onSubmit: this.updateStreak
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Today I..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
-        custom: true,
-        type: "checkbox",
-        id: "wash",
-        checked: this.state.wash,
-        onChange: this.handleChange,
-        label: "washed my hands"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
-        custom: true,
-        type: "checkbox",
-        id: "cough",
-        checked: this.state.cough,
-        onChange: this.handleChange,
-        label: "didn't cough outside my elbow"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
-        custom: true,
-        type: "checkbox",
-        id: "touch",
-        checked: this.state.touch,
-        onChange: this.handleChange,
-        label: "didn't touch my face"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
-        custom: true,
-        type: "checkbox",
-        id: "distance",
-        checked: this.state.distance,
-        onChange: this.handleChange,
-        label: "kept distance"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
-        custom: true,
-        type: "checkbox",
-        id: "home",
-        checked: this.state.home,
-        onChange: this.handleChange,
-        label: "stayed home"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex justify-content-center my-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rewards__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        ref: function ref(_ref2) {
-          _this3.reward = _ref2;
-        },
-        type: "confetti",
-        className: "justify-content-center text-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        block: true,
-        disabled: !this.state.action_count,
-        type: "submit",
-        variant: "outline-success",
-        className: "btn-circle rounded-circle",
-        size: "lg",
-        onClick: function onClick() {
-          return _this3.confetti();
-        }
-      }, "Keep my Streak!"))));
+      if (!this.state.loaded) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null);
+      } else if (this.state.done) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Well Done"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You kept your streak today. Come back tomorrow to keep it going!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "d-flex justify-content-center my-4"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rewards__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          ref: function ref(_ref) {
+            _this3.reward = _ref;
+          },
+          type: "confetti"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          block: true,
+          variant: "success",
+          className: "btn-circle rounded-circle",
+          size: "lg",
+          onClick: function onClick() {
+            return _this3.confetti();
+          }
+        }, "Kept my Streak!"))));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          onSubmit: this.updateStreak
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Today I..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
+          custom: true,
+          type: "checkbox",
+          id: "wash",
+          checked: this.state.wash,
+          onChange: this.handleChange,
+          label: "washed my hands"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
+          custom: true,
+          type: "checkbox",
+          id: "cough",
+          checked: this.state.cough,
+          onChange: this.handleChange,
+          label: "didn't cough outside my elbow"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
+          custom: true,
+          type: "checkbox",
+          id: "touch",
+          checked: this.state.touch,
+          onChange: this.handleChange,
+          label: "didn't touch my face"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
+          custom: true,
+          type: "checkbox",
+          id: "distance",
+          checked: this.state.distance,
+          onChange: this.handleChange,
+          label: "kept distance"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Check, {
+          custom: true,
+          type: "checkbox",
+          id: "home",
+          checked: this.state.home,
+          onChange: this.handleChange,
+          label: "stayed home"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "d-flex justify-content-center my-4"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_rewards__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          ref: function ref(_ref2) {
+            _this3.reward = _ref2;
+          },
+          type: "confetti",
+          className: "justify-content-center text-center"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          block: true,
+          disabled: !this.state.action_count,
+          type: "submit",
+          variant: "outline-success",
+          className: "btn-circle rounded-circle",
+          size: "lg",
+          onClick: function onClick() {
+            return _this3.confetti();
+          }
+        }, "Keep my Streak!"))));
+      }
     }
   }]);
 

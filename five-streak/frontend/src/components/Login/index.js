@@ -33,7 +33,6 @@ class Login extends Component {
                                 await this.props.handleLogin(e, this.state);
                                 this.props.history.push("/");
                             } catch (error) {
-                                console.log(error.stack);
                                 this.setState({
                                     login_error:
                                         "Incorrect username or password",

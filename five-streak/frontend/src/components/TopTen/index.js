@@ -44,7 +44,7 @@ class TopTen extends Component {
                                         </h5>
                                         <small>
                                             {streak.days} day
-                                            {streak.days == 1 ? "" : "s"}
+                                            {streak.days === 1 ? "" : "s"}
                                         </small>
                                     </div>
                                     <p className="mb-1">
