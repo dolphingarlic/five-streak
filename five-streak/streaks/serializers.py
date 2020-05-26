@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password, ValidationError
+
 from streaks.models import Streak
 
 
@@ -12,8 +14,11 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         password = validated_data.pop('password', None)
         instance = self.Meta.model(**validated_data)
-        if password is not None:
+        try:
+            validate_password(password)
             instance.set_password(password)
+        except ValidationError as error:
+            raise serializers.ValidationError({'password': error.error_list[0].messages})
         instance.save()
         return instance
 
