@@ -36,7 +36,7 @@ class TopTenActiveStreaksView(APIView):
 
     def get(self, request, format=None):
         top_ten = Streak.objects.filter(
-            active=True).order_by('start_date', 'action_count')[:10]
+            active=True).order_by('start_date', '-action_count')[:10]
         serializer = StreakSerializer(top_ten, many=True)
         return Response(serializer.data)
 
